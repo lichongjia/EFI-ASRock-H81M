@@ -9,7 +9,7 @@ English | [中文](README_cn.md)
 
 ### Anyway, Everything works fine!!!
 
-***Please download the latest version from [Releases](https://github.com/lichongjia/EFI-ASUS-B250M/releases).***
+***Please download the latest version from [Releases](https://github.com/lichongjia/EFI-ASRock-H81M/releases).***
 
 
 
