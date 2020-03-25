@@ -5,7 +5,7 @@ EFI-ASRock-H81M
 
 中文 | [English](README.md)
 
-<img title="QRcode" src="Docs/H81M-DGS R2.0-USBmap.png" alt="QRcode" data-align="center">
+<img title="QRcode" src="Docs/USBmap.png" alt="QRcode" data-align="center">
 
 所有部件都完美工作，如果你是8系列主板，可将此EFI作为参考模板来配置。
 

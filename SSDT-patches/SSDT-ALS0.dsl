@@ -5,7 +5,9 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "ALS0", 0x00000000)
 {
-    Scope (_SB)
+    External (_SB_.PCI0.LPCB, DeviceObj)
+
+    Scope (\_SB.PCI0.LPCB)
     {
         Device (ALS0)
         {

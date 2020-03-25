@@ -6,6 +6,8 @@
 	<string>This file is for 10.13.6+ support by JFZ.</string>
 	<key>ACPI</key>
 	<dict>
+		<key>AutoMerge</key>
+		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>Patches</key>
@@ -29,6 +31,8 @@
 				<string>DMAR</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>NoDynamicExtract</key>
@@ -37,16 +41,14 @@
 	</dict>
 	<key>Boot</key>
 	<dict>
+		<key>Arguments</key>
+		<string>darkwake=10</string>
 		<key>DefaultLoader</key>
 		<string>boot.efi</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
-		<key>NeverHibernate</key>
-		<true/>
-		<key>NoEarlyProgress</key>
-		<true/>
 		<key>Timeout</key>
-		<integer>3</integer>
+		<integer>-1</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -56,22 +58,20 @@
 		<dict>
 			<key>Inject</key>
 			<string>No</string>
-			<key>ResetHDA</key>
-			<true/>
 		</dict>
 		<key>Properties</key>
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
-				<data>EQAAAA==</data>
+				<data>BQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
 				<key>compatible</key>
-				<string>pci8086,8c4b</string>
+				<string>pci8086,8c44</string>
 				<key>device-id</key>
-				<data>S4wAAA==</data>
+				<data>RIwAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -84,13 +84,11 @@
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
-			<false/>
+			<true/>
 			<key>FixOwnership</key>
-			<false/>
-			<key>HighCurrent</key>
-			<false/>
+			<true/>
 			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 	</dict>
 	<key>GUI</key>
@@ -183,8 +181,10 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>CustomUUID</key>
+		<string>03000200-0400-0500-0006-000700080009</string>
 		<key>InjectKexts</key>
-		<string>Detect</string>
+		<string>Yes</string>
 		<key>InjectSystemID</key>
 		<true/>
 	</dict>

@@ -1,11 +1,12 @@
-//
-// In config ACPI, GPRW to XPRW
-// Find:     47505257 02
-// Replace:  58505257 02
-//
+/*
+ * In config ACPI, GPRW to XPRW
+ * Find:     47505257 02
+ * Replace:  58505257 02
+ */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "GPRW", 0x00000000)
 {
     External(XPRW, MethodObj)
+
     Method (GPRW, 2, NotSerialized)
     {
         If (_OSI ("Darwin"))

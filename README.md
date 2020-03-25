@@ -5,7 +5,7 @@ EFI-ASRock-H81M
 
 English | [中文](README_cn.md)
 
-<img title="QRcode" src="Docs/H81M-DGS R2.0-USBmap.png" alt="QRcode" data-align="center">
+<img title="QRcode" src="Docs/USBmap.png" alt="QRcode" data-align="center">
 
 ### Anyway, Everything works fine!!!
 

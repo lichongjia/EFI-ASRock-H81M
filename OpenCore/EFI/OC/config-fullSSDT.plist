@@ -58,11 +58,27 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>add MEM2 Device</string>
+				<string>add Device MEM2</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-MEM2.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>add Device PNLF</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PNLF.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>add Device SLPB</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SLPB.aml</string>
 			</dict>
 		</array>
 		<key>Block</key>
@@ -115,22 +131,6 @@
 	<dict>
 		<key>MmioWhitelist</key>
 		<array>
-			<dict>
-				<key>Address</key>
-				<integer>4275159040</integer>
-				<key>Comment</key>
-				<string>Haswell: SB_RCBA is a 0x4 page memory region, containing SPI_BASE at 0x3800 (SPI_BASE_ADDRESS)</string>
-				<key>Enabled</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>Address</key>
-				<integer>4278190080</integer>
-				<key>Comment</key>
-				<string>Generic: PCI root is a 0x1000 page memory region used by some firmwares</string>
-				<key>Enabled</key>
-				<false/>
-			</dict>
 		</array>
 		<key>Quirks</key>
 		<dict>
@@ -171,7 +171,7 @@
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
-				<data>EQAAAA==</data>
+				<data>BQAAAA==</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
@@ -187,13 +187,6 @@
 				<key>device-id</key>
 				<data>EgQAAA==</data>
 			</dict>
-		</dict>
-		<key>Block</key>
-		<dict>
-			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
-			<array>
-				<string>MaximumBootBeepVolume</string>
-			</array>
 		</dict>
 	</dict>
 	<key>Kernel</key>
@@ -328,21 +321,25 @@
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
-		</array>
-		<key>Block</key>
-		<array>
 			<dict>
+				<key>BundlePath</key>
+				<string>VirtualSMC.kext/Contents/Plugins/SMCLightSensor.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Monitoring Ambient Light Sensor</string>
 				<key>Enabled</key>
-				<false/>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleTyMCEDriver</string>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/SMCLightSensor</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
 				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
 			</dict>
+		</array>
+		<key>Block</key>
+		<array>
 		</array>
 		<key>Emulate</key>
 		<dict>
@@ -353,90 +350,6 @@
 		</dict>
 		<key>Patch</key>
 		<array>
-			<dict>
-				<key>Base</key>
-				<string>__ZN8AppleRTC18setupDateTimeAlarmEPK11RTCDateTime</string>
-				<key>Comment</key>
-				<string>Disable RTC wake scheduling</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data></data>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleRTC</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string>19.0.0</string>
-				<key>Replace</key>
-				<data>ww==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>Base</key>
-				<string>__ZN8AppleRTC14updateChecksumEv</string>
-				<key>Comment</key>
-				<string>Disable RTC checksum update on poweroff</string>
-				<key>Count</key>
-				<integer>1</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data></data>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleRTC</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>Replace</key>
-				<data>ww==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>Base</key>
-				<string>_AcpiOsVprintf</string>
-				<key>Comment</key>
-				<string>Disable ACPI logging</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<false/>
-				<key>Find</key>
-				<data></data>
-				<key>Identifier</key>
-				<string>com.apple.driver.AppleACPIPlatform</string>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>MaxKernel</key>
-				<string>18.5.0</string>
-				<key>MinKernel</key>
-				<string>18.5.0</string>
-				<key>Replace</key>
-				<data>ww==</data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>Skip</key>
-				<integer>0</integer>
-			</dict>
 		</array>
 		<key>Quirks</key>
 		<dict>
@@ -480,7 +393,7 @@
 			<key>HibernateMode</key>
 			<string>None</string>
 			<key>HideAuxiliary</key>
-			<false/>
+			<true/>
 			<key>HideSelf</key>
 			<true/>
 			<key>PickerAttributes</key>
@@ -492,11 +405,11 @@
 			<key>PollAppleHotKeys</key>
 			<false/>
 			<key>ShowPicker</key>
-			<true/>
+			<false/>
 			<key>TakeoffDelay</key>
 			<integer>0</integer>
 			<key>Timeout</key>
-			<integer>5</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Debug</key>
 		<dict>
@@ -505,26 +418,12 @@
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
-			<integer>2147483650</integer>
+			<integer>0</integer>
 			<key>Target</key>
-			<integer>3</integer>
+			<integer>0</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Auxiliary</key>
-				<false/>
-				<key>Comment</key>
-				<string>Not signed for security reasons</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Name</key>
-				<string>CustomOS</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,11-22-33-44-55-66-77-88)/HD(1,GPT,00000000-0000-0000-0000-000000000000,0x800,0x64000)/\EFI\BOOT\BOOTX64.EFI</string>
-			</dict>
 			<dict>
 				<key>Arguments</key>
 				<string></string>
@@ -539,35 +438,21 @@
 				<key>Path</key>
 				<string>PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x0,0xFFFF,0x0)/HD(1,GPT,E57E9CE6-877D-4535-9ADC-5F8B5551C8D7,0x800,0x96000)/\EFI\Microsoft\Boot\bootmgfw.efi</string>
 			</dict>
-			<dict>
-				<key>Arguments</key>
-				<string></string>
-				<key>Auxiliary</key>
-				<true/>
-				<key>Comment</key>
-				<string>Windows 10 test boot menu</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Name</key>
-				<string>Windows 10 USB</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1a,0x0)/USB(0x1,0x0)/USB(0x3,0x0)/HD(1,GPT,8dc65e02-7ef7-475c-a0ba-92becce28d62,0x800,0x13b800)/\EFI\Microsoft\Boot\bootmgfw.efi</string>
-			</dict>
 		</array>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
 			<true/>
 			<key>AllowSetDefault</key>
-			<false/>
+			<true/>
 			<key>AuthRestart</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
-			<integer>11</integer>
+			<integer>2</integer>
 			<key>HaltLevel</key>
 			<integer>2147483648</integer>
 			<key>ScanPolicy</key>
-			<integer>0</integer>
+			<integer>983299</integer>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -577,11 +462,11 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Auxiliary</key>
-				<false/>
+				<true/>
 				<key>Comment</key>
 				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>UEFI Shell</string>
 				<key>Path</key>
@@ -591,11 +476,11 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Auxiliary</key>
-				<false/>
+				<true/>
 				<key>Comment</key>
 				<string>check MSR 0xE2 write protection</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>MSR check</string>
 				<key>Path</key>
@@ -605,11 +490,11 @@
 				<key>Arguments</key>
 				<string></string>
 				<key>Auxiliary</key>
-				<false/>
+				<true/>
 				<key>Comment</key>
 				<string>unlock MSR 0xE2 write protection</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Name</key>
 				<string>MSR unlock</string>
 				<key>Path</key>
@@ -630,10 +515,8 @@
 			</dict>
 			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
 			<dict>
-				<key>SystemAudioVolume</key>
-				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100</string>
+				<string></string>
 				<key>csr-active-config</key>
 				<data>5wMAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -641,47 +524,13 @@
 			</dict>
 		</dict>
 		<key>Block</key>
-		<dict>
-			<key>4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14</key>
-			<array>
-				<string>UIScale</string>
-				<string>DefaultBackgroundColor</string>
-			</array>
-			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
-			<array>
-				<string>boot-args</string>
-			</array>
-		</dict>
+		<dict/>
 		<key>LegacyEnable</key>
 		<false/>
 		<key>LegacyOverwrite</key>
 		<false/>
 		<key>LegacySchema</key>
-		<dict>
-			<key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
-			<array>
-				<string>EFILoginHiDPI</string>
-				<string>EFIBluetoothDelay</string>
-				<string>LocationServicesEnabled</string>
-				<string>SystemAudioVolume</string>
-				<string>SystemAudioVolumeDB</string>
-				<string>SystemAudioVolumeSaved</string>
-				<string>bluetoothActiveControllerInfo</string>
-				<string>bluetoothInternalControllerInfo</string>
-				<string>flagstate</string>
-				<string>fmm-computer-name</string>
-				<string>nvda_drv</string>
-				<string>prev-lang:kbd</string>
-			</array>
-			<key>8BE4DF61-93CA-11D2-AA0D-00E098032B8C</key>
-			<array>
-				<string>Boot0080</string>
-				<string>Boot0081</string>
-				<string>Boot0082</string>
-				<string>BootNext</string>
-				<string>BootOrder</string>
-			</array>
-		</dict>
+		<dict/>
 		<key>WriteFlash</key>
 		<false/>
 	</dict>
@@ -694,17 +543,17 @@
 			<key>AdviseWindows</key>
 			<false/>
 			<key>MLB</key>
-			<string>D25323301GUF8YLCB</string>
+			<string>D25536501CDF8YLFB</string>
 			<key>ROM</key>
-			<data>xzJok7dx</data>
+			<data>0FCZk7dx</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
 			<string>iMac14,2</string>
 			<key>SystemSerialNumber</key>
-			<string>D25KT3YJF8JC</string>
+			<string>D25QC0WVF8JC</string>
 			<key>SystemUUID</key>
-			<string>DBF96979-9910-47FD-9D95-3519AE7921DD</string>
+			<string>03000200-0400-0500-0006-000700080009</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -741,12 +590,6 @@
 			<string>HfsPlus.efi</string>
 			<string>ApfsDriverLoader.efi</string>
 			<string>FwRuntimeServices.efi</string>
-			<string>#AppleUsbKbDxe.efi</string>
-			<string>#HiiDatabase.efi</string>
-			<string>#NvmExpressDxe.efi</string>
-			<string>#XhciDxe.efi</string>
-			<string>#AudioDxe.efi</string>
-			<string>#NdkBootPicker.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -763,7 +606,7 @@
 			<key>PointerSupport</key>
 			<false/>
 			<key>PointerSupportMode</key>
-			<string>ASUS</string>
+			<string></string>
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>
@@ -776,7 +619,7 @@
 			<key>DirectGopRendering</key>
 			<false/>
 			<key>IgnoreTextInGraphics</key>
-			<false/>
+			<true/>
 			<key>ProvideConsoleGop</key>
 			<true/>
 			<key>ReconnectOnResChange</key>
