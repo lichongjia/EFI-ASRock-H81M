@@ -20,10 +20,10 @@ English | [中文](README_cn.md)
 | Motherboard           | ASRock H81M-DGS R2.0                     |
 | Processor             | Intel Core i3-4170 @ 3.70GHz           |
 | Memory                | Samsung 4GBx2 DDR3 1600MHz            |
-| Hard Disk             | ADATA SP920 Sata SSD 256G            |
-| Integrated Video Card | Intel HD Graphics 4400（id=0x04120004） |
+| Hard Disk             | ADATA SP920 Sata SSD 128G        |
+| Integrated Video Card | Intel HD Graphics 4400（AAPL,ig-platform-id=0x04120004） |
 | External Video Card   | NVIDIA GeForce GT 740                      |
-| Sound Card            | Realtek ALC662（id=17）                |
+| Sound Card            | Realtek ALC662（layout-id=5）     |
 | Network Card          | Realtek RTL8111G                       |
 
 

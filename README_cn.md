@@ -15,16 +15,16 @@ EFI-ASRock-H81M
 
 ## 硬件详情
 
-| 配置     | 产品型号                                |
-| :------- | :-------------------------------------- |
-| 主板     | ASRock H81M-DGS R2.0                    |
-| 处理器   | Intel Core i3-4170 @ 3.70GHz            |
-| 内存     | Samsung 4GBx2 DDR3 1600MHz              |
-| 硬盘     | ADATA SP920 Sata SSD 256G               |
-| 核显     | Intel HD Graphics 4400（id=0x04120004） |
-| 独显     | NVIDIA GeForce GT 740                   |
-| 声卡     | Realtek ALC662（id=17）                 |
-| 有线网卡 | Realtek RTL8111G                        |
+| 配置     | 产品型号                                                 |
+| :------- | :------------------------------------------------------- |
+| 主板     | ASRock H81M-DGS R2.0                                     |
+| 处理器   | Intel Core i3-4170 @ 3.70GHz                             |
+| 内存     | Samsung 4GBx2 DDR3 1600MHz                               |
+| 硬盘     | ADATA SP920 Sata SSD 128G                                |
+| 核显     | Intel HD Graphics 4400（AAPL,ig-platform-id=0x04120004） |
+| 独显     | NVIDIA GeForce GT 740                                    |
+| 声卡     | Realtek ALC662（layout-id=5）                            |
+| 有线网卡 | Realtek RTL8111G                                         |
 
 
 
