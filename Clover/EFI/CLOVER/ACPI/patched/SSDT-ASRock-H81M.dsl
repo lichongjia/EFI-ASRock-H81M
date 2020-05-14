@@ -83,7 +83,7 @@ If (_OSI ("Darwin"))
             }
         }//PCI0
 
-        /* Add Device MEM2 */
+        /* Add Device PNLF */
         Device(PNLF)
         {
             Name(_HID, EisaId ("APP0002"))  // _HID: Hardware ID
