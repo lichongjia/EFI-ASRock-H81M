@@ -19,5 +19,5 @@
 - Clover version is 5103
 - OpenCore version is 0.5.6
 
-***Note: This computer is used by my parents in my hometown. Maybe I will not update!!!**
+***Note: This computer is used by my parents in my hometown. Maybe I will not update!!!***
 
